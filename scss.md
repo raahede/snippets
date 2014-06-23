@@ -38,3 +38,23 @@ SCSS
 }
 ```
 
+### CSS character bullets
+
+``` SCSS
+%bullet-list {
+  @extend %list-clean;
+  li {
+    &:before {
+      content:"\2022";
+      display: inline-block;
+      margin: 0 0.5em 0 0.2em;
+    }
+    @media (min-width: 481px) {
+      display: inline-block;
+      &:first-child:before {
+        display: none;
+      }
+    }
+  }
+}
+```
