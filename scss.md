@@ -62,7 +62,7 @@ SCSS
 ### Font icons
 
 ``` SCSS
-
+// Include font
 @font-face {
     font-family: "icons";
     src: font-url("icons.eot");
@@ -71,12 +71,9 @@ SCSS
          font-url("icons.ttf") format("truetype"),
          font-url("icons.svg#icons") format("svg");
 }
-
-@mixin font-icon( $icon-letter ) {
-  @extend %icon;
-  content: "#{ $icon-letter }";
-}
-
+```
+``` SCSS
+// Icon map
 $icons : (
   arrow-right : "\e600",
   close       : "\e601",
@@ -90,7 +87,9 @@ $icons : (
   tick        : "\e609",
   user        : "\e60a"
 );
-
+```
+``` SCSS
+// Icon styles
 %icon {
   font-family: "icons";
   font-style: normal;
@@ -101,7 +100,11 @@ $icons : (
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+}
 
+@mixin font-icon( $icon-letter ) {
+  @extend %icon;
+  content: "#{ $icon-letter }";
 }
 
 .icon {
@@ -119,6 +122,7 @@ $icons : (
 }
 ```
 ``` HTML
+<!-- Add icons in your markup -->
 <p class="icon" data-icon="\e600">Arrow right</p>
 <p class="icon--arrow-right">Arrow right</p>
 <p class="icon" data-icon="\e601">Close</p>
