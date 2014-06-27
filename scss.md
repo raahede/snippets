@@ -74,18 +74,20 @@ SCSS
 ```
 ``` SCSS
 // Icon map
+// Name         Icon    Size
 $icons : (
-  arrow-right : "\e600",
-  close       : "\e601",
-  comment     : "\e602",
-  contact     : "\e603",
-  error       : "\e604",
-  home        : "\e605",
-  open        : "\e606",
-  pdf         : "\e607",
-  pin         : "\e608",
-  tick        : "\e609",
-  user        : "\e60a"
+  arrow-right : "\e600" 18px,
+  close       : "\e601" 18px,
+  comment     : "\e602" 18px,
+  contact     : "\e603" 18px,
+  error       : "\e604" 18px,
+  home        : "\e605" 18px,
+  open        : "\e606" 18px,
+  pdf         : "\e607" 18px,
+  pin         : "\e608" 18px,
+  tick        : "\e609" 18px,
+  user        : "\e60a" 18px,
+  watch       : "\e60b" 18px
 );
 ```
 ``` SCSS
@@ -112,9 +114,12 @@ $icons : (
     @extend %icon;
     content: attr(data-icon);
   }
-  @each $name, $letter in $icons {
+  @each $name, $params in $icons {
+    $letter : nth( $params, 1 );
+    $size   : nth( $params, 2 );
     &--#{ $name } {
       &:before {
+        font-size: $size;
         @include font-icon( $letter );
       }
     }
