@@ -58,3 +58,57 @@ SCSS
   }
 }
 ```
+
+### Font icons
+
+``` SCSS
+@mixin font-icon( $icon-letter ) {
+  @extend %icon;
+  content: "#{ $icon-letter }";
+}
+
+$icons : (
+  arrow-right : "\e600",
+  close       : "\e601",
+  comment     : "\e602",
+  contact     : "\e603",
+  error       : "\e604",
+  home        : "\e605",
+  open        : "\e606",
+  pdf         : "\e607",
+  pin         : "\e608",
+  tick        : "\e609",
+  user        : "\e60a"
+);
+
+%icon {
+  font-family: 'icons';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  position: relative;
+    top: 1px;
+  speak: none;
+  text-transform: none;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+}
+
+.icon {
+  &:before {
+    @extend %icon;
+    content: attr(data-icon);
+  }
+  @each $name, $letter in $icons {
+    &--#{ $name } {
+      &:before {
+        @include font-icon( $letter );
+      }
+    }
+  }
+}
+```
+
