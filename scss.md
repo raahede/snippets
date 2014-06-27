@@ -62,7 +62,7 @@ SCSS
 ### Font icons
 
 ``` SCSS
-// Include font
+// Include font (using Compass font-url helper)
 @font-face {
     font-family: "icons";
     src: font-url("icons.eot");
