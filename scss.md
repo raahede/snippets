@@ -109,22 +109,33 @@ $icons : (
   content: "#{ $icon-letter }";
 }
 
+// Creating icons from map
+@each $name, $params in $icons {
+  $letter : nth( $params, 1 );
+  $size   : nth( $params, 2 );
+
+  // Creating placeholder selectors for pseudo elements to extend
+  %icon--#{ $name } {
+    @include font-icon( $letter );
+    @include font-size( $size );
+  }
+
+  // Creating classes for use in the DOM
+  // <p class="icon--arrow-right">Arrow right</p>
+  .icon--#{ $name }:before {
+    @extend %icon--#{ $name };
+  }
+}
+
+// Icons for use with data-attribute
+// <p class="icon" data-icon="\e600">Arrow right</p>
 .icon {
   &:before {
     @extend %icon;
     content: attr(data-icon);
   }
-  @each $name, $params in $icons {
-    $letter : nth( $params, 1 );
-    $size   : nth( $params, 2 );
-    &--#{ $name } {
-      &:before {
-        font-size: $size;
-        @include font-icon( $letter );
-      }
-    }
-  }
 }
+
 ```
 ``` HTML
 <!-- Add icons in your markup -->
