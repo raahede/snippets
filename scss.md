@@ -115,27 +115,27 @@ $icons : (
   $size   : nth( $params, 2 );
 
   // Creating placeholder selectors for pseudo elements to extend
+  // .my-class { @extend %icon--close }
   %icon--#{ $name } {
     @include font-icon( $letter );
     @include font-size( $size );
   }
 
   // Creating classes for use in the DOM
-  // <p class="icon--arrow-right">Arrow right</p>
+  // <p class="icon--close">Close</p>
   .icon--#{ $name }:before {
     @extend %icon--#{ $name };
   }
 }
 
 // Icons for use with data-attribute
-// <p class="icon" data-icon="\e600">Arrow right</p>
+// <p class="icon" data-icon="\e601">Close</p>
 .icon {
   &:before {
     @extend %icon;
     content: attr(data-icon);
   }
 }
-
 ```
 ``` HTML
 <!-- Add icons in your markup -->
