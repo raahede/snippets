@@ -62,6 +62,16 @@ SCSS
 ### Font icons
 
 ``` SCSS
+
+@font-face {
+    font-family: "icons";
+    src: font-url("icons.eot");
+    src: font-url("icons.eot?#iefix") format("embedded-opentype"),
+         font-url("icons.woff") format("woff"),
+         font-url("icons.ttf") format("truetype"),
+         font-url("icons.svg#icons") format("svg");
+}
+
 @mixin font-icon( $icon-letter ) {
   @extend %icon;
   content: "#{ $icon-letter }";
@@ -82,13 +92,10 @@ $icons : (
 );
 
 %icon {
-  font-family: 'icons';
+  font-family: "icons";
   font-style: normal;
   font-variant: normal;
   font-weight: normal;
-  line-height: 1;
-  position: relative;
-    top: 1px;
   speak: none;
   text-transform: none;
 
@@ -110,5 +117,11 @@ $icons : (
     }
   }
 }
+```
+``` HTML
+<p class="icon" data-icon="\e600">Arrow right</p>
+<p class="icon--arrow-right">Arrow right</p>
+<p class="icon" data-icon="\e601">Close</p>
+<p class="icon--close">Close</p>
 ```
 
