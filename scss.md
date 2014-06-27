@@ -115,7 +115,7 @@ $icons : (
   $size   : nth( $params, 2 );
 
   // Creating placeholder selectors for pseudo elements to extend
-  // .my-class { @extend %icon--close }
+  // .my-class::before { @extend %icon--close }
   %icon--#{ $name } {
     @include font-icon( $letter );
     @include font-size( $size );
