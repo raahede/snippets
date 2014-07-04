@@ -38,6 +38,40 @@ SCSS
 }
 ```
 
+### Center vertical
+
+``` SCSS
+// Container
+%center-vertical-container {
+  @media (min-width: 481px) {
+    display: table;
+    width: 100%;
+  }
+}
+
+// Center text vertical
+%center-vertical {
+  @media (min-width: 481px) {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+// Center text vertical - right
+%center-vertical--right {
+  @extend %center-vertical;
+  @media (min-width: 481px) {
+    text-align: right;
+  }
+}
+
+// Show first on mobile
+%center-vertical--top {
+  @extend %center-vertical;
+  display: table-header-group;
+}
+```
+
 ### CSS character bullets
 
 ``` SCSS
