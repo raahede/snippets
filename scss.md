@@ -179,3 +179,17 @@ $icons : (
 <p class="icon--close">Close</p>
 ```
 
+### Round down helper
+
+``` SCSS
+// Round down numbers with or without units
+@function get-floor( $number ) {
+  @if( unitless( $number ) ) {
+    @return floor( $number );
+  } @else {
+    $unit: $number * 0 + 1;
+    $unitless: $number / ($number * 0 + 1);
+    @return floor( $unitless ) * $unit;
+  }
+}
+```
