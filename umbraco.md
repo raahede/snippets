@@ -3,7 +3,7 @@ Umbraco
 
 ### Navigation
 
-Partial
+#### Partial
 `Views/global/navigation.cshtml`
 ```cs
 @inherits UmbracoTemplatePage
@@ -54,7 +54,7 @@ Partial
 @traverse( root, root.Level, levels )
 ```
 
-Use
+#### Use
 
 ```cs
 @Html.Partial( "global/navigation"
