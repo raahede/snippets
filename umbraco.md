@@ -56,10 +56,28 @@ Umbraco
 
 ### Use
 
+Top nav (one level)
+
 ```cs
+@{
+  var navRoot = Model.Content.AncestorOrSelf(1);
+}
+
 @Html.Partial( "global/navigation"
   , Model
-  , new ViewDataDictionary {{ "startNodeId", Model.Id }, { "levels", 3 }})
+  , new ViewDataDictionary {{ "startNodeId", navRoot.Id }})
+```
+
+Left nav
+
+```cs
+@{
+  var navRoot = Model.Content.AncestorOrSelf(2);
+}
+
+@Html.Partial( "global/navigation"
+  , Model
+  , new ViewDataDictionary {{ "startNodeId", navRoot.Id }, { "levels", 3 }})
 ```
 
 ### Output
