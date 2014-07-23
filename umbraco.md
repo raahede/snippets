@@ -61,3 +61,25 @@ Umbraco
   , Model
   , new ViewDataDictionary {{ "startNodeId", Model.Id }, { "levels", 3 }})
 ```
+
+### Output
+``` html
+<ul class="nav__list">
+  <li class="nav__item active">
+    <a class="nav__link" href="..." title="...">Level 1</a>
+      <ul class="nav__list--level2">
+      <li class="nav__item current active">
+        <a class="nav__link" href="..." title="...">Level 2</a>
+        <ul class="nav__list--level3">
+          <li class="nav__item">
+            <a class="nav__link" href="..." title="...">Level 3</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav__item">
+        <a class="nav__link" href="..." title="...">Level 2</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+```
