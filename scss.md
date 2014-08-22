@@ -106,3 +106,17 @@ SCSS
   }
 }
 ```
+### Strip units helper
+
+``` SCSS
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+```
+### Pixels to EMs helper
+
+``` SCSS
+@function px-to-em( $px, $base: 16px ) {
+  @return strip-units($px) / strip-units($base) * 1em;
+}
+```
