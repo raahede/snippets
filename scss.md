@@ -38,6 +38,28 @@ SCSS
 }
 ```
 
+### Alternative text on media query
+
+```HTML
+<a href="/" class="button" title="Text on mobile">Text on desktop</a>
+```
+
+```SCSS
+.button {
+  display: inline-block;
+  @media (max-width: 1079px) {
+    text-indent: -999px;
+    overflow: hidden;
+    &:before {
+      content: attr(title);
+      display: inline;
+      text-indent: 0;
+      float: inherit;
+    }
+  }
+}
+```
+
 ### Center vertical
 
 ``` SCSS
