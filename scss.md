@@ -47,6 +47,7 @@ SCSS
 ```SCSS
 .button {
   display: inline-block;
+  float: left;
   @media (max-width: 1079px) {
     text-indent: -999px;
     overflow: hidden;
