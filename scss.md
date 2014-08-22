@@ -59,6 +59,21 @@ SCSS
     }
   }
 }
+
+// Alternative: not dependent on floating the button
+.button {
+  display: inline-block;
+  @media (max-width: 1079px) {
+    font-size:0;
+    overflow: hidden;
+    &:before {
+      font-size: 16px;
+      content: attr(title);
+      display: inline;
+      float: inherit;
+    }
+  }
+}
 ```
 
 ### Center vertical
