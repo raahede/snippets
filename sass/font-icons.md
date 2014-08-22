@@ -13,7 +13,7 @@
          font-url("icons.svg#icons") format("svg");
 }
 ```
-** Settings **
+**Settings**
 ``` SCSS
 // Icon font family
 $icon-font: "icons" !default;
@@ -28,7 +28,7 @@ $icons : (
 ) !default;
 
 ```
-** Default use**
+**Default use**
 ``` SCSS
 // Extending icon selector
 .button { @extend .icon--button; }
@@ -50,7 +50,7 @@ $icons : (
   @extend .icon--arrow;
 }
 ```
-** Use inside media query **
+**Use inside media query**
 ``` SCSS
 // Forcing style output rather than extending a placeholder selector
 .button:before {
@@ -59,7 +59,7 @@ $icons : (
   }
 }
 ```
-** Using default output **
+**Using default output**
 ``` HTML
 <!-- Add icons in your markup -->
 <p class="icon" data-icon="\e600">Arrow right</p>
