@@ -54,7 +54,7 @@ $icons : (
 ``` SCSS
 // Forcing style output rather than extending a placeholder selector
 .button:before {
-  @include susy-breakpoint( $bp-l-xl ) {
+  @media (max-width: 769px) {
     @include use-icon( button, true );
   }
 }
@@ -121,7 +121,7 @@ $icons : (
 
 // Forcing style output rather than extending a placeholder selector
 .button:before {
-  @include susy-breakpoint( $bp-l-xl ) {
+  @media (max-width: 769px) {
     @include use-icon( button, true );
   }
 }
