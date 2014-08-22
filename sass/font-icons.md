@@ -1,6 +1,6 @@
 # Font icons
 
-**Include font **
+**Include font**
 
 ``` SCSS
 // Include font (using Compass font-url helper)
