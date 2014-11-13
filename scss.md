@@ -198,6 +198,14 @@ $bullet-color-selected: #000 !default;
 
 ``` SCSS
 @function px-to-em( $px, $base: 16px ) {
-  @return strip-units($px) / strip-units($base) * 1em;
+  @if type-of( $px ) == "list" {
+    $output: ();
+    @each $value in $px {
+      $output: append($output, px-to-em( $value, $base ));
+    }
+    @return $output;
+  } @else {
+    @return strip-units($px) / strip-units($base) * 1em;
+  }
 }
 ```
