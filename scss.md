@@ -130,6 +130,49 @@ SCSS
   }
 }
 ```
+
+### Navigation bullets
+
+``` SCSS
+$bullet-size: 12px !default;
+$bullet-background: #fff !default;
+$bullet-background-selected: $bullet-background !default;
+$bullet-color: #cdcdcd !default;
+$bullet-color-selected: #000 !default;
+
+%bullet {
+  background-color: $bullet-background;
+  border: ceil($bullet-size / 6) solid $bullet-color;
+  cursor: pointer;
+  display: inline-block;
+  height: $bullet-size;
+  overflow: hidden;
+  position: relative;
+  text-indent: -100%;
+  width: $bullet-size;
+  @include border-radius(100%);
+
+  &:after {
+    background-color: $bullet-color-selected;
+    content: "";
+    display: none;
+    position: absolute;
+      bottom: ceil($bullet-size / 4);
+      left: ceil($bullet-size / 4);
+      right: ceil($bullet-size / 4);
+      top: ceil($bullet-size / 4);
+    @include border-radius(100%);
+  }
+}
+
+%bullet--selected {
+  background-color: $bullet-background-selected;
+  border-color: $bullet-color-selected;
+
+  &:after { display: block; }
+}
+```
+
 ### Round down helper
 
 ``` SCSS
